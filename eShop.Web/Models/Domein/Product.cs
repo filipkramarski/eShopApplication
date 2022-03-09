@@ -19,10 +19,13 @@ namespace eShop.Web.Models.Domein
         public string ProductDescription { get; set; }
         [Required]
 
-        public int Rating { get; set; }
+        public int ProductPrice { get; set; }
         [Required]
+        public int Rating { get; set; }
 
         public virtual ICollection<ProductInShoppingCart> ProductInShoppingCarts { get; set; }
+
+      
 
     }
 }
