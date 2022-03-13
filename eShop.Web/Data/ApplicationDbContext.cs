@@ -49,6 +49,19 @@ namespace eShop.Web.Data
                 .HasOne<eShopApplicationUser>(z => z.Owner)
                 .WithOne(z => z.UserCart)
                 .HasForeignKey<ShoppingCart>(z => z.OwnerId);
+
+            builder.Entity<ProductInOrder>()
+               .HasKey(z => new { z.ProductId, z.OrderId });
+
+            builder.Entity<ProductInOrder>()
+                .HasOne(z => z.Product)
+                .WithMany(z => z.ProductInOrders)
+                .HasForeignKey(z => z.ProductId);
+
+            builder.Entity<ProductInOrder>()
+                .HasOne(z => z.Order)
+                .WithMany(z => z.ProductInOrders)
+                .HasForeignKey(z => z.OrderId);
         }
     }
 }

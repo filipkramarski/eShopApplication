@@ -25,7 +25,9 @@ namespace eShop.Web.Models.Domein
 
         public virtual ICollection<ProductInShoppingCart> ProductInShoppingCarts { get; set; }
 
-      
+        public virtual ICollection<ProductInOrder> ProductInOrders { get; set; }
+
+        public Product() { }
 
     }
 }
